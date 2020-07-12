@@ -27,10 +27,25 @@ then
 	zsh git curl wget build-essential default-jdk libboost-all-dev cmake cmake-qt-gui \
 	qt5-default qtcreator libeigen3-dev libarmadillo-dev python3-pip python3.8 \
 	clang clang-format clang-tidy clang-tools libopencv-dev opencv-data opencv-doc \
-	openssh-server filezilla texlive-full texmaker texmaker-data texstudio texstudio-doc
+	openssh-server filezilla texlive-full texmaker texmaker-data texstudio texstudio-doc \
+	java-common java-11-amazon-corretto-jdk
 else
 	echo -e "${BLUE}You took the blue pill.\n ${NOCOLOR}"
 fi
+
+#Config Java
+echo -e "${PURPLE}Do you want to configure Java to Amazon Corretto 11? [y/n] ${NOCOLOR} \n"
+read javaInitVar
+if [ "${javaInitVar}" == "y" ] || [ "${javaInitVar}" == "Y" ] || [ "${javaInitVar}" == "yes" ] || [ "${javaInitVar}" == "YES" ]; 
+then
+	echo -e "${RED}You Took the RED PILL! :)${NOCOLOR} \n"
+	sudo update-alternatives --config java;
+	sudo update-alternatives --config javac;
+else
+	echo -e "${BLUE}You took the blue pill.\n ${NOCOLOR}"
+fi
+
+
 # Python Packages
 echo -e "${PURPLE}Do you want to setup python3 packages and make  pip local? [y/n] \n ${NOCOLOR}"
 read pythonInstall
