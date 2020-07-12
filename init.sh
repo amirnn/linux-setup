@@ -28,7 +28,7 @@ then
 	qt5-default qtcreator libeigen3-dev libarmadillo-dev python3-pip python3.8 \
 	clang clang-format clang-tidy clang-tools libopencv-dev opencv-data opencv-doc \
 	openssh-server filezilla texlive-full texmaker texmaker-data texstudio texstudio-doc \
-	java-common
+	java-common gradle
 else
 	echo -e "${BLUE}You took the blue pill.\n ${NOCOLOR}"
 fi
