@@ -28,7 +28,7 @@ then
 	qt5-default qtcreator libeigen3-dev libarmadillo-dev python3-pip python3.8 \
 	clang clang-format clang-tidy clang-tools libopencv-dev opencv-data opencv-doc \
 	openssh-server filezilla texlive-full texmaker texmaker-data texstudio texstudio-doc \
-	java-common java-11-amazon-corretto-jdk
+	java-common
 else
 	echo -e "${BLUE}You took the blue pill.\n ${NOCOLOR}"
 fi
@@ -39,6 +39,9 @@ read javaInitVar
 if [ "${javaInitVar}" == "y" ] || [ "${javaInitVar}" == "Y" ] || [ "${javaInitVar}" == "yes" ] || [ "${javaInitVar}" == "YES" ]; 
 then
 	echo -e "${RED}You Took the RED PILL! :)${NOCOLOR} \n"
+	wget -O- https://apt.corretto.aws/corretto.key | sudo apt-key add - 
+ 	sudo add-apt-repository 'deb https://apt.corretto.aws stable main'
+	sudo apt-get update; sudo apt-get install -y java-11-amazon-corretto-jdk;
 	sudo update-alternatives --config java;
 	sudo update-alternatives --config javac;
 else
