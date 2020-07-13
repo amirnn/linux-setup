@@ -63,7 +63,7 @@ fi
 # oh my zsh installation
 echo -e "${PURPLE}Do you want the oh-my-zsh and set as default? [y/n] \n ${NOCOLOR}"
 read zshInstall
-if [ "$zshInstall" == "y" ] || [ "$zshInstall" == "Y" ] || [ "$zshInstall" == "yes" ] || [ "$zshInstall" == "YES" ]; then
+if [ "${zshInstall}" == "y" ] || [ "${zshInstall}" == "Y" ] || [ "${zshInstall}" == "yes" ] || [ "${zshInstall}" == "YES" ]; then
 	echo -e "${RED}You Took the RED PILL! :)${NOCOLOR} \n"
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	# zsh configs
@@ -79,7 +79,7 @@ fi
  #install cuda
  echo -e "${PURPLE}Do you want to install CUDA 11 with Nvidia Drivers? [y/n] \n ${NOCOLOR}"
  read cudaInstall
- if [ "$cudaInstall" == "y" ] || [ "$cudaInstall" == "Y" ] || [ "$cudaInstall" == "yes" ] || [ "$cudaInstall" == "YES" ]; then
+ if [ "${cudaInstall}" == "y" ] || [ "${cudaInstall}" == "Y" ] || [ "${cudaInstall}" == "yes" ] || [ "${cudaInstall}" == "YES" ]; then
  	echo -e "${RED}You Took the RED PILL! :)${NOCOLOR} \n"
  	wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
  	sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
@@ -94,12 +94,30 @@ fi
  #For Gnome3
  echo -e "${PURPLE}Do you want to set GNOME as your desktop enviornment? [y/n] \n ${NOCOLOR}"
  read gnomeInstall
- if [ "$gnomeInstall" == "y" ] || [ "$gnomeInstall" == "Y" ] || [ "$gnomeInstall" == "yes" ] || [ "$gnomeInstall" == "YES" ]; then
+ if [ "${gnomeInstall}" == "y" ] || [ "${gnomeInstall}" == "Y" ] || [ "${gnomeInstall}" == "yes" ] || [ "${gnomeInstall}" == "YES" ]; then
  	echo -e "${RED}You Took the RED PILL! :)${NOCOLOR} \n"
  	sudo apt install -y gnome-session gdm3
  	sudo update-alternatives --config gdm3-theme.gresource
  else
 	echo -e "${BLUE}You took the blue pill.\n ${NOCOLOR}"
  fi
+
+# Install Spotify
+echo -e "${PURPLE}Do you want to install Spotify? [y/n] \n ${NOCOLOR}"
+read spotifyVar
+if [ "${spotifyVar}" == "y" ] || [ "${spotifyVar}" == "Y" ] || [ "${spotifyVar}" == "yes" ] || [ "${spotifyVar}" == "YES" ]; then
+ 	echo -e "${GREEN}You Took the Green PILL! :)${NOCOLOR} \n"
+	curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
+	echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+	sudo apt-get update && sudo apt-get install spotify-client
+ else
+	echo -e "${BLUE}You took the blue pill.\n ${NOCOLOR}"
+ fi
+
+
+
+
+
+
 
 echo -e "${GREEN}Initialization and Setup was done. Enjoy Amir. :) ${NOCOLOR}"
