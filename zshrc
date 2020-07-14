@@ -68,7 +68,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git pip lol sudo common-aliases zsh-interactive-cd)
+plugins=(git pip lol sudo vscode common-aliases zsh-interactive-cd)
 
 source $ZSH/oh-my-zsh.sh
 
