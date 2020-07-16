@@ -1,8 +1,22 @@
+# The original $PATH variable is saved in etc/enviornment
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="$HOME/.local/bin:$PATH"
 # Path to your oh-my-zsh installation.
 export ZSH="/home/amir/.oh-my-zsh"
+
+# JAVA HOME for Thesis.
+# https://www.javahelps.com/2017/09/install-oracle-jdk-9-on-linux.html
+# run this command for installation: 
+# sudo update-alternatives --install "/usr/bin/java" "java" "$HOME/.local/lib/jvm/jdk1.8.0_261/bin/java" 0
+# sudo update-alternatives --install "/usr/bin/javac" "javac" "$HOME/.local/lib/jvm/jdk1.8.0_261/bin/javac" 0
+# sudo update-alternatives --set java $HOME/.local/lib/jvm/jdk1.8.0_261/bin/java
+# sudo update-alternatives --set javac $HOME/.local/lib/jvm/jdk1.8.0_261/bin/javac
+# or you can use: sudo update-alternatives --config java/javac and select the the enviornment variable you want to select.
+# using update-alternatives --list you can see all the options.
+export JAVA_HOME="$HOME/.local/lib/jvm/jdk1.8.0_261/"
+export PATH="$HOME/.local/lib/jvm/jdk1.8.0_261/bin:$PATH"
+
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -100,8 +114,8 @@ alias zshconfig="code ~/.zshrc"
 alias downPlaylist="youtube-dl -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' --all-subs "
 
 # Show library path on disk
-alias libpath="dpkg -L packagename "
-
+alias libpath="dpkg -L "
 
 prompt_context(){}
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
