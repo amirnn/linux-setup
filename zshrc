@@ -98,5 +98,10 @@ export ARCHFLAGS="-arch x86_64"
 alias zshconfig="code ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias downPlaylist="youtube-dl -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' --all-subs "
+
+# Show library path on disk
+alias libpath="dpkg -L packagename "
+
+
 prompt_context(){}
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
