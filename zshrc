@@ -119,3 +119,5 @@ alias libpath="dpkg -L "
 prompt_context(){}
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# print the fortune.
+fortune
