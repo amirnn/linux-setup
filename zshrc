@@ -112,7 +112,8 @@ export ARCHFLAGS="-arch x86_64"
 alias zshconfig="code ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias downPlaylist="youtube-dl -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' --all-subs "
-
+# Update user installed packages.
+alias updatePythonUserPackages="pip freeze --user | cut -d'=' -f1 | xargs python3 -m pip install --user -U"
 # Show library path on disk
 alias libpath="dpkg -L "
 
